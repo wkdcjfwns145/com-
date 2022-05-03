@@ -8,13 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>컴#</title>
+        <title>컴# - 주변기기</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="resources/css/styles.css" rel="stylesheet" />
+        <link href="resources/css/sideKategorie.css" rel="stylesheet" />
     </head>
     <body>
     	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -22,13 +23,24 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">ㅎ히히힣</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">컴# 에서 !</p>
+                    <h1 class="display-4 fw-bolder">주변 기기</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">케이스</p>
                 </div>
             </div>
         </header>
         <!-- Section-->
+        <div class="container px-4 px-lg-5 mt-5">
+            <ul class="side">
+	            <li class="side"><a href="monitor">모니터</a></li>
+	            <li class="side"><a class="active" href="case">케이스</a></li>
+	            <li class="side"><a href="keyboard">키보드</a></li>  	  
+	            <li class="side"><a href="mouse">마우스</a></li>
+	            <li class="side"><a href="headset">헤드셋</a></li>
+	            <li class="side"><a href="speaker">스피커</a></li>           	
+            </ul>
+        </div>
         <section class="py-5">
+  
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     <div class="col mb-5">
