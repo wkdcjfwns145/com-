@@ -51,9 +51,9 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Fancy Product</h5>
+                                    <h5 class="fw-bolder">인텔 코어i9-12세대 12900 (엘더레이크)</h5>
                                     <!-- Product price-->
-                                    $40.00 - $80.00
+                                    626,200\
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -72,7 +72,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Special Item</h5>
+                                    <h5 class="fw-bolder">인텔 코어i5-12세대 12400 (엘더레이크)</h5>
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                         <div class="bi-star-fill"></div>
@@ -83,7 +83,7 @@
                                     </div>
                                     <!-- Product price-->
                                     <span class="text-muted text-decoration-line-through">$20.00</span>
-                                    $18.00
+                                    199,080\
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -102,10 +102,9 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <h5 class="fw-bolder">인텔 코어i3-12세대 12100 (엘더레이크)</h5>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
+                                    144,500\
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -122,7 +121,7 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Popular Item</h5>
+                                    <h5 class="fw-bolder">AMD 라이젠9-4세대 5900X (버미어)</h5>
                                     <!-- Product reviews-->
                                     <div class="d-flex justify-content-center small text-warning mb-2">
                                         <div class="bi-star-fill"></div>
@@ -132,7 +131,7 @@
                                         <div class="bi-star-fill"></div>
                                     </div>
                                     <!-- Product price-->
-                                    $40.00
+                                    521,080\
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -151,10 +150,9 @@
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">Sale Item</h5>
+                                    <h5 class="fw-bolder">AMD 라이젠9-4세대 5950X (버미어)</h5>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    $25.00
+                                    716,300\
                                 </div>
                             </div>
                             <!-- Product actions-->

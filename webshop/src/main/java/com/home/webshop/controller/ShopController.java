@@ -1,4 +1,4 @@
-package com.home.webshop;
+package com.home.webshop.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +24,12 @@ public class ShopController {
 	@GetMapping("qna")
 	public String qna() {
 		return "qna/qna";
+	}
+	
+	// 로그인 페이지 이동
+	@GetMapping("login")
+	public String login() {
+		return "login/login";
 	}
 	
 	
