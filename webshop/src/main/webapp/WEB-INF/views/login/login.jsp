@@ -33,7 +33,8 @@
 				        <input type='text' id='username' placeholder='id'>
 				        <input type='password' id='password' placeholder='password'>
 				    </form>
-				  <button class='forgot'>회원가입</button> <button class='login'>로그인</button>                
+				  <button class='forgot' onclick="location.href='join';">회원가입</button>
+				  <button class='login' onclick="location.href='login';">로그인</button>                    
             </div>
         <!-- Section-->
         <section class="py-5">

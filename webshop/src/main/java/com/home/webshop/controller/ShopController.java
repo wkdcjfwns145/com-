@@ -20,6 +20,12 @@ public class ShopController {
 		return "main";
 	}
 	
+	// 회원가입 페이지 이동
+	@GetMapping("join")
+	public String join() {
+		return "login/join";
+	}
+	
 	// 문의하기 페이지 이동
 	@GetMapping("qna")
 	public String qna() {
