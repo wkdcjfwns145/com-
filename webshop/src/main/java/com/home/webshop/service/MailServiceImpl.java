@@ -18,7 +18,7 @@ public class MailServiceImpl implements MailService {
 	}
 	
 	@Override
-	public boolean send(String subject, String text, String from, String to) throws Exception {
+	public String send(String subject, String text, String from, String to, String code) throws Exception {
 		
 		MimeMessage message = javaMailSender.createMimeMessage();
 		
@@ -28,7 +28,7 @@ public class MailServiceImpl implements MailService {
 		helper.setFrom(from);
 		helper.setTo(to);
 		javaMailSender.send(message);		
-		return true;
+		return code;
 	}
 
 }

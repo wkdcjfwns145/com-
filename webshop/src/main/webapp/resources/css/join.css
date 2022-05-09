@@ -69,6 +69,20 @@ border-width: 5px;
     background:#14a03d;
 }
 
-.back{
+/* .back{
+	display:none;
+} */
+
+.certify{
 	display:none;
 }
+
+label{
+	position:absolute;
+	right:500px;
+}
+.idcheck{
+	display:none;
+	color:#ff0000;
+}
+

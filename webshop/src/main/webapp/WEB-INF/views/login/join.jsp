@@ -14,7 +14,7 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="resources/css/join.css" rel="stylesheet" />
+        <link href="resources/css/join.css?ㅌ2ss2s" rel="stylesheet" />
     </head>
     <body>
     	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -28,14 +28,18 @@
             </div>
         </header>
             <div class='wrap'>
+            <div class="data"></div>
                		<h1>회원가입</h1>
 				    <form>
 					    <div class="front">
 					    	<input type='text' id='email' placeholder='이메일'/>
-							<input type="button" id="check" value="인증하기"/>
+					    	<input type='text' class="certify" id='code' placeholder='인증번호'/>
+							<input type="button" id="sendmail" value="메일전송"/>
+							<input type="button" class="certify" id="check" value="인증하기"/>
 					    </div>
 					    <div class="back">
-					    <input type='text' id='id' placeholder='아이디'/>	
+					    <label class="idcheck">사용중인 아이디 입니다.</label>
+					    <input type='text' id='id' oninput="idcheck()" placeholder='아이디'/>
 						<input type='text' id='pw' placeholder='비밀번호'/>	
 						<input type='text' id='pwcheck' placeholder='비밀번호확인'/>	
 						<input type='text' id='name' placeholder='이름'/>	
@@ -52,19 +56,15 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-   	
-   	var code = <%= (String)session.getAttribute("code") %>;
-   	
+   	var code = "";
+   	$("#sendmail").on("click", sendmail);
+   	$("#check").on("click", check);
 
-    	$("#check").on("click", check);
-
-
-	// 이메일 인증
-	function check() {
+	// 이메일 보내기
+	function sendmail() {
 		var email = $("#email").val();
-		sessionStorage.setItem("email", email);
-		
-		if(code != null){
+	
+		if(code != ""){
 			alert("이미 인증메일이 전송되었습니다.")
 		} else{
 			$.ajax({
@@ -72,21 +72,48 @@
 				type : "post",
 				dataType : "json",
 				data : {"email" : $("#email").val()},
-				success : function() {
-					alert("인증메일을 발송하였습니다.");
-					location.reload();
+				success : function(data) {
+						alert("인증메일을 발송하였습니다.");
+						$(".certify").show();
+						$("#sendmail").hide();
+						code = data;					
 				},
 				error : function() {
-					alert("이메일이 존재하지 않거나 잘못입력되었습니다.");
-					<% session.invalidate(); %>
-					location.replace("join");
+					alert("이메일을 정확히 입력해 주세요.");	
 				}
 			});
 		}
 		
 	};
+	
+	// 인증 확인
+	function check() {
+		if($("#code").val() == code){
+			alert("인증성공");
+			$(".certify").hide();
+			$(".back").show();
+		} else {
+			alert("인증번호가 틀립니다.");
+		}
+	}
+	
+	// 아이디 중복확인
+	function idcheck() {
+		$.ajax({
+			url : "idcheck",
+			type : "post",
+			dataType : "json",
+			data : {"id" : $("#id").val()},
+			success : function (result) {
+				if(result != 0){
+					$(".idcheck").show();	
+				} else {
+					$(".idcheck").hide();
+				}		
+			}
+		});
+	}
 
 </script>
 </body>
-
 </html>
