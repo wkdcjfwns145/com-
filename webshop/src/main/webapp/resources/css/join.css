@@ -79,9 +79,17 @@ border-width: 5px;
 
 label{
 	position:absolute;
-	right:500px;
+	right:400px;
 }
 .idcheck{
+	display:none;
+	color:#ff0000;
+}
+.pwcheck{
+	display:none;
+	color:#ff0000;
+}
+.b{
 	display:none;
 	color:#ff0000;
 }

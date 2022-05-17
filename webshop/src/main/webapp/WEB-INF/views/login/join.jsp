@@ -14,7 +14,7 @@
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="resources/css/join.css?ㅌ2ss2s" rel="stylesheet" />
+        <link href="resources/css/join.css?ㅌ2ss2ㄴs" rel="stylesheet" />
     </head>
     <body>
     	<jsp:include page="/WEB-INF/views/common/header.jsp"/>
@@ -32,20 +32,22 @@
                		<h1>회원가입</h1>
 				    <form>
 					    <div class="front">
-					    	<input type='text' id='email' placeholder='이메일'/>
+					    	<input class="info" type='email' id='email' placeholder='이메일' required/>
 					    	<input type='text' class="certify" id='code' placeholder='인증번호'/>
 							<input type="button" id="sendmail" value="메일전송"/>
 							<input type="button" class="certify" id="check" value="인증하기"/>
 					    </div>
 					    <div class="back">
 					    <label class="idcheck">사용중인 아이디 입니다.</label>
-					    <input type='text' id='id' oninput="idcheck()" placeholder='아이디'/>
-						<input type='text' id='pw' placeholder='비밀번호'/>	
-						<input type='text' id='pwcheck' placeholder='비밀번호확인'/>	
-						<input type='text' id='name' placeholder='이름'/>	
-						<input type='text' id='phone' placeholder='연락처'/>	
-						<input type='text' id='addr' placeholder='주소'/>	
-						<input type="button" id="register" onclick="location.href='register';" value="회원가입"/>   
+					    <input class="info" type='text' id='id' oninput="checkid()" placeholder='아이디' required/>
+					    <label class="a">특수문자/문자/숫자 포함 8~15자</label><label class="b">비밀번호 형식에 맞게 입력하세요.</label>
+						<input class="info" type='password' id='pw' oninput="pwrulecheck()" placeholder='비밀번호' required/>
+						<label class="pwcheck">비밀번호가 일치하지 않습니다.</label>	
+						<input class="info" type='password' id='pwcheck' oninput="passwordcheck()" placeholder='비밀번호확인' required/>	
+						<input class="info" type='text' id='name' placeholder='이름' required/>	
+						<input class="info" type='text' id='phon' placeholder='연락처' required/>	
+						<input class="info" type='text' id='addr' placeholder='주소' required/>
+						<input class="info" type="button" id="register" value="회원가입" required/> 			  
 					    </div>
 				    </form>
 				     
@@ -56,10 +58,12 @@
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
+	var pwrule = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; //특수문자/문자/숫자 포함 8~15
    	var code = "";
    	$("#sendmail").on("click", sendmail);
    	$("#check").on("click", check);
-
+   	$("#register").on("click", register);
+   	
 	// 이메일 보내기
 	function sendmail() {
 		var email = $("#email").val();
@@ -98,7 +102,7 @@
 	}
 	
 	// 아이디 중복확인
-	function idcheck() {
+	function checkid() {
 		$.ajax({
 			url : "idcheck",
 			type : "post",
@@ -113,6 +117,57 @@
 			}
 		});
 	}
+	
+	// 비밀번호 정규식 확인
+	function pwrulecheck() {
+		if($("#pw").val() != "" && !pwrule.test($("#pw").val())){
+			$(".a").hide();
+			$(".b").show();			
+		} else{		
+			$(".b").hide();	
+			$(".a").show();
+		}
+	}
+	
+	// 비밀번호 일치확인
+	function passwordcheck() {
+		if($("#pw").val() != $("#pwcheck").val()){
+			$(".pwcheck").show();
+		} else{
+			$(".pwcheck").hide();
+		}
+	}
+	
+	// 회원가입
+	function register() {
+		if($(".info").val() == ""){
+			alert("회원가입 정보를 모두 입력해주세요.");
+		}else{
+			$.ajax({
+				url : "join",
+				type : "post",
+				dataType : "json",
+				data : {"id" : $("#id").val(),
+						"pw" : $("#pw").val(),
+						"name" : $("#name").val(),
+						"addr" : $("#addr").val(),
+						"phon" : $("#phon").val(),
+						"email" : $("#email").val()},
+				success : function(data) {
+					alert(data.msg);
+					location.href="login";
+				},
+				error : function (data) {
+					alert(data.msg);
+				}
+			});
+		}
+
+	}
+	
+
+	
+
 
 </script>
 </body>

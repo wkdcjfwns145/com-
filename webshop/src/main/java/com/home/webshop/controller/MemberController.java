@@ -1,31 +1,27 @@
 package com.home.webshop.controller;
 
+import java.util.HashMap;
 import java.util.Random;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.home.webshop.service.MailService;
 import com.home.webshop.service.MemberService;
+import com.home.webshop.vo.MemberVO;
 
 
-@Controller
+@RestController
 public class MemberController {
 	
-	@Inject
-	MemberService member;
-	@Inject
-	MailService ms;
-	
-	
-	
+	@Inject MemberService member;
+	@Inject MailService ms;
+
 	// 이메일 인증
 	@PostMapping("sendMail")
-	@ResponseBody
 	public String sendMail(HttpSession session, String email) throws Exception {
 			int random = new Random().nextInt(10000) + 10000;
 			String code = String.valueOf(random);	
@@ -37,9 +33,17 @@ public class MemberController {
 	
 	// 아이디 중복검사
 	@PostMapping("idcheck")
-	@ResponseBody
 	public int idcheck(String id) {
 		return member.idCheck(id);
+	}
+	
+	// 회원가입 처리
+	@PostMapping("join")
+	public HashMap<String,String> join(MemberVO vo) { 	
+		HashMap<String,String> msg = new HashMap<String,String>();
+		String message = member.join(vo);
+		msg.put("msg", message);
+		return msg;
 	}
 	
 	

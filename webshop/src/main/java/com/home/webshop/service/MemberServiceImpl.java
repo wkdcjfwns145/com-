@@ -23,4 +23,17 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 
+	@Override
+	public String join(MemberVO vo) {
+		int result = dao.join(vo);
+		String message = "";
+		if(result == 1) {
+			message = "회원가입 성공";
+		} else {
+			message = "회원가입 실패";
+		}
+		return message;
+	}
+
+
 }
