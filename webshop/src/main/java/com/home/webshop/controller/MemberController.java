@@ -68,6 +68,15 @@ public class MemberController {
 		}
 		return result; 
 	 }
+	
+	// 로그아웃
+	@PostMapping("logout")
+	public String logout(HttpSession session) {
+		if(session.getAttribute("member") != null) {
+			session.removeAttribute("member");
+		}
+		return "main";
+	}
 	 
 	
 	
