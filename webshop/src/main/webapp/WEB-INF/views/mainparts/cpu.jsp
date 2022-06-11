@@ -46,7 +46,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                            <img class="card-img-top" src="resources/img/i9.jpg"/>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -58,7 +58,10 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+                                <div class="text-center">
+                                	<a id="i9" class="btn btn-outline-dark mt-auto" onclick="info()">상세정보</a>
+                                	<a class="btn btn-outline-dark mt-auto" href="#"><i class="bi-cart-fill me-1"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -73,22 +76,16 @@
                                 <div class="text-center">
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">인텔 코어i5-12세대 12400 (엘더레이크)</h5>
-                                    <!-- Product reviews-->
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                    </div>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$20.00</span>
                                     199,080\
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a></div>
+                                <div class="text-center">
+                                	<a id="i9" class="btn btn-outline-dark mt-auto" onclick="info()">상세정보</a>
+                                	<a class="btn btn-outline-dark mt-auto" href="#"><i class="bi-cart-fill me-1"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -241,9 +238,13 @@
             </div>
         </section>
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script>
+			$("#i9").on("click", openWin);
+			
+			function openWin(){
+			    window.open("i9", width=800, height=700, "toolbar=no, menubar=no, scrollbars=yes, resizable=no");
+			}
+		</script>
     </body>
 </html>
