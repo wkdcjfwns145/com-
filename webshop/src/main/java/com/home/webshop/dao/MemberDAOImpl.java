@@ -25,7 +25,6 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public int join(MemberVO vo) {
 		int result = sql.insert(namespace+".join",vo);
-		System.out.println("result : " + result);
 		return result;
 	}
 

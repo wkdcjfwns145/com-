@@ -30,6 +30,9 @@
 	             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">	         
 		            <li class="nav-item"><a class="nav-link" href="login">로그인</a></li> 	           	           	
 	            </ul>  
+	            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">	         
+		            <li class="nav-item"><a class="nav-link" href="userlist">테스트</a></li> 	           	           	
+	            </ul>  
                 <button class="btn btn-outline-dark" type="submit">
                     <i class="bi-cart-fill me-1"></i>
                     Cart
