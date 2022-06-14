@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.home.webshop.vo.CategoryVO;
+import com.home.webshop.vo.ItemVO;
 import com.home.webshop.vo.MemberVO;
 
 @Repository
@@ -29,6 +30,11 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<CategoryVO> categoryList() {
 		List<CategoryVO> list = sql.selectList(namespace+".categoryList");
 		return list;
+	}
+
+	@Override
+	public int register(ItemVO vo) {
+		return sql.selectOne(namespace+".register");
 	}
 
 }

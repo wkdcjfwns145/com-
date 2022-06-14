@@ -14,6 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="categoryList" resultType="com.home.webshop.vo.CategoryVO">
 		SELECT * FROM category
 	</select>
+	
+	<insert id="register" parameterType="com.home.webshop.vo.ItemVO">		
+		INSERT INTO item(name, cateCode, price, stock, memo, image) 
+		VALUES(#{name},#{cateCode},#{price},#{stock},#{memo},#{image})
+	</insert>
 
 
 </mapper>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.home.webshop.dao.AdminDAO;
 import com.home.webshop.vo.CategoryVO;
+import com.home.webshop.vo.ItemVO;
 import com.home.webshop.vo.MemberVO;
 
 @Service
@@ -28,6 +29,14 @@ public class AdminServiceImpl implements AdminService {
 	public List<CategoryVO> categorylist() {
 		
 		return dao.categoryList();
+	}
+
+	// 상품 등록
+	@Override
+	public String register(ItemVO vo) {
+		int result = dao.register(vo);
+		String msg = (result != 0) ? "등록 완료" : "등록 실패";
+		return msg;
 	}
 
 }

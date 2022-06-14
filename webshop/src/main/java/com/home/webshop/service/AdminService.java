@@ -3,6 +3,7 @@ package com.home.webshop.service;
 import java.util.List;
 
 import com.home.webshop.vo.CategoryVO;
+import com.home.webshop.vo.ItemVO;
 import com.home.webshop.vo.MemberVO;
 
 public interface AdminService {
@@ -12,5 +13,8 @@ public interface AdminService {
 	
 	// 카테고리 목록
 	public List<CategoryVO> categorylist();
+	
+	// 상품 등록
+	public String register(ItemVO vo);
 
 }
