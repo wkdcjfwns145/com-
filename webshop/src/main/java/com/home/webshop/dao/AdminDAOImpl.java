@@ -37,4 +37,37 @@ public class AdminDAOImpl implements AdminDAO {
 		return sql.selectOne(namespace+".register");
 	}
 
+	@Override
+	public List<ItemVO> goodsList() {
+		List<ItemVO> list = sql.selectList(namespace+".goodsList");
+		return list;
+	}
+
+	@Override
+	public List<ItemVO> catelist(int cateCode) {
+		List<ItemVO> list = sql.selectList(namespace+".catelist", cateCode);
+		return list;
+	}
+
+	@Override
+	public ItemVO itemdetail(int num) {
+		return sql.selectOne(namespace+".itemdetail");
+	}
+
+	@Override
+	public int updateitem(ItemVO vo) {
+		return sql.update(namespace+".updateitem");
+		
+	}
+
+	@Override
+	public int deleteitem(int num) {
+		return sql.delete(namespace+".deleteitem");
+	}
+
+	@Override
+	public int deleteuser(String id) {
+		return sql.delete(namespace+".deleteuser");
+	}
+
 }

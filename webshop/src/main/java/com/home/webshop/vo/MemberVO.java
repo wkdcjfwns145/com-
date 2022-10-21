@@ -14,5 +14,6 @@ public class MemberVO {
 	private String addr;
 	private String email;
 	private Date regdate;
+	private int verify;
 
 }

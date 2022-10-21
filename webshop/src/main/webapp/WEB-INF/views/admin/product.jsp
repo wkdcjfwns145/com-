@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>컴#</title>
+        <title>컴샵</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -30,16 +30,15 @@
         <div class="container px-4 px-lg-5 mt-5">
             <ul class="side">
 	            <li class="side"><a class="active" href="product">상품 등록</a></li>
-	            <li class="side"><a href="goodslist">상품 목록</a></li>
-	            <li class="side"><a href="userlist">유저 목록</a></li>  	  
-	            <li class="side"><a href="boardlist">게시판 관리</a></li>     	
+	            <li class="side"><a href="goodslist">상품 관리</a></li>
+	            <li class="side"><a href="userlist">유저 목록</a></li>  	      	
             </ul>
         </div>
         <section class="py-5">
 	        <div class="container px-4 px-lg-5 mt-5">
 	       		<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4">
 	       			<div class="col mb-5">
-	       				<form action="register" method="post">
+	       				<form action="register" method="post" enctype="multipart/form-data">
 						 	<label>상품 카테고리</label>
 							 <select id="category" name="cateCode"></select>
 							 <div>
@@ -59,9 +58,10 @@
 								 <textarea rows="5" cols="50" name="memo"></textarea>
 							</div>		
 							<div>
-								 <label for="image">이미지</label>
-								 <input type="file" name="image"/>
+								 <label for="img">이미지</label>
+								 <input type="file" name="file" id="image"/>
 								 <div class="select_img"><img src="" /></div>
+								 
 							</div>				
 							<div>
 								 <button type="submit" name="register">등록</button>
@@ -107,7 +107,16 @@
         		    reader.readAsDataURL(this.files[0]);
         		   }
         		  });
-        	
+        	  
+        	$("#image").change(function() {
+				if(this.files && this.files[0]) {
+					var reader = new FileReader;
+					reader.onload = function(data) {
+						$(".select_img img").attr("src", data.target.result).width(500);
+					}
+					reader.readAsDataURL(this.files[0]);
+				}				
+			});
         	
         </script>
     </body>

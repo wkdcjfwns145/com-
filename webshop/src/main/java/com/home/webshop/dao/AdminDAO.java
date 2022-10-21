@@ -12,6 +12,18 @@ public interface AdminDAO {
 	
 	List<CategoryVO> categoryList();
 	
+	List<ItemVO> goodsList();
+	
+	List<ItemVO> catelist(int cateCode);
+	
 	int register(ItemVO vo);
+	
+	ItemVO itemdetail(int num);
+	
+	int updateitem(ItemVO vo);
+	
+	int deleteitem(int num);
+	
+	int deleteuser(String id);
 
 }

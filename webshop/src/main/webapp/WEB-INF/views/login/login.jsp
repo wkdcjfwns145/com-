@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>컴#</title>
+        <title>컴샵</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -22,8 +22,8 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">ㅎ히히힣</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">컴# 에서 !</p>
+                    <h1 class="display-4 fw-bolder">로그인</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">로그인</p>
                 </div>
             </div>
         </header>
@@ -43,6 +43,7 @@
         <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
+	
 		$("#login").on("click", login);
 		
 		function login() {

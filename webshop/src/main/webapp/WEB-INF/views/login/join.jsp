@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>컴#</title>
+        <title>컴샵</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -22,8 +22,8 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">ㅎ히히힣</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">컴# 에서 !</p>
+                    <h1 class="display-4 fw-bolder">회원가입</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">회원가입</p>
                 </div>
             </div>
         </header>
@@ -60,6 +60,7 @@
 <script>
 	var pwrule = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; //특수문자/문자/숫자 포함 8~15
    	var code = "";
+   	$(".back").hide();
    	$("#sendmail").on("click", sendmail);
    	$("#check").on("click", check);
    	$("#register").on("click", register);
@@ -94,7 +95,7 @@
 	function check() {
 		if($("#code").val() == code){
 			alert("인증성공");
-			$(".certify").hide();
+			$(".front").hide();
 			$(".back").show();
 		} else {
 			alert("인증번호가 틀립니다.");

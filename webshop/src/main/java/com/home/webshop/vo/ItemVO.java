@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class ItemVO {
 	
+	private int num;
 	private String name;
 	private String cateCode;
 	private String price;
@@ -14,6 +15,7 @@ public class ItemVO {
 	private String memo;
 	private String image;
 	private Date upload;
+	private String thumbimg;
 	
 
 }
